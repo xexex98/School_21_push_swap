@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:35:48 by mbarra            #+#    #+#             */
-/*   Updated: 2021/11/30 18:47:16 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/12/01 20:38:09 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	pa(t_ps *ps)
 {
-	int i;
+	int	i;
 
 	ps->a_len++;
 	ps->b_len--;
@@ -36,7 +36,7 @@ void	pa(t_ps *ps)
 
 void	pb(t_ps *ps)
 {
-	int i;
+	int	i;
 
 	ps->a_len--;
 	ps->b_len++;

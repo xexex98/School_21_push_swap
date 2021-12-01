@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:22:05 by mbarra            #+#    #+#             */
-/*   Updated: 2021/11/29 18:28:04 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/12/01 20:41:50 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sa(t_ps *ps)
 {
-	int temp;
+	int	temp;
 
 	if (ps->a_len >= 2)
 	{
@@ -29,7 +29,7 @@ void	sa(t_ps *ps)
 
 void	sb(t_ps *ps)
 {
-	int temp;
+	int	temp;
 
 	if (ps->b_len >= 2)
 	{
@@ -42,9 +42,9 @@ void	sb(t_ps *ps)
 		return ;
 }
 
-void ss(t_ps *ps)
+void	ss(t_ps *ps)
 {
-	int temp;
+	int	temp;
 
 	if (ps->a_len >= 2 || ps->b_len >= 2)
 	{
