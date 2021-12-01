@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:40:26 by mbarra            #+#    #+#             */
-/*   Updated: 2021/12/01 20:44:45 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/12/01 21:11:42 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void		ft_init_struct(t_ps *ps, int argc);
 int			ft_dup(int *str, int len);
 int			ft_correct(char *str);
 void		ft_algoritm(t_ps *ps);
+void		ft_algoritm_2(t_ps *ps);
 void		ft_algoritm_3(t_ps *ps);
+void		ft_algoritm_5(t_ps *ps);
 
 void		sa(t_ps *ps);
 void		sb(t_ps *ps);

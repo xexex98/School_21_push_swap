@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:37:44 by mbarra            #+#    #+#             */
-/*   Updated: 2021/12/01 20:47:32 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/12/01 21:24:11 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,17 @@ void	ft_init_struct(t_ps *ps, int argc)
 
 void	ft_algoritm(t_ps *ps)
 {
-	if (ps->a_len <= 3)
+	if (ps->a_len == 2)
+		ft_algoritm_2(ps);	
+	else if (ps->a_len <= 3)
 		ft_algoritm_3(ps);
+	else if (ps->a_len <= 5)
+		ft_algoritm_5(ps);
+}
+void	ft_algoritm_2(t_ps *ps)
+{
+	if (ps->stack_a[0] > ps->stack_a[1])
+		sa(ps);
 }
 
 void	ft_algoritm_3(t_ps *ps)
@@ -84,6 +93,11 @@ void	ft_algoritm_3(t_ps *ps)
 	}
 	else if (ps->stack_a[0] < ps->stack_a[1] && ps->stack_a[1] > ps->stack_a[2])
 		rra(ps);
+}
+
+void	ft_algoritm_5(t_ps *ps)
+{
+	return ;
 }
 
 int	main(int argc, char **argv)
@@ -114,11 +128,24 @@ int	main(int argc, char **argv)
 		if (ft_dup(ps->stack_a, ps->a_len) == 1)
 		{
 			ft_algoritm(ps);
-			printf("OK");
+			// printf("OK");
 		}
 		else
 			ft_putstr("Error\n");
 	}
-	// printf("%i", ps->stack_a[2]);
+	i = 0;
+	pb(ps);
+	pb(ps);
+	while (i < ps->a_len)
+	{
+		printf("a:%i\n", ps->stack_a[i]);
+		i++;
+	}
+	i = 0;
+	while (i < ps->b_len)
+	{
+		printf("b:%i\n", ps->stack_b[i]);
+		i++;
+	}
 	return (0);
 }
