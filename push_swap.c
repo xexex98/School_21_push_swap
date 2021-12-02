@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:37:44 by mbarra            #+#    #+#             */
-/*   Updated: 2021/12/02 22:26:23 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/12/02 23:10:17 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	ft_init_struct(t_ps *ps, int argc)
 void	ft_find_max(t_ps *ps)
 {
 	int	i;
-	int	max;
 
 	ps->a_max = ps->stack_a[0];
 	i = 0;
@@ -81,7 +80,6 @@ void	ft_find_max(t_ps *ps)
 void	ft_find_min(t_ps *ps)
 {
 	int	j;
-	int	min;
 
 	ps->a_min = ps->stack_a[0];
 	j = 0;
@@ -96,13 +94,28 @@ void	ft_find_min(t_ps *ps)
 	}
 }
 
+void	ft_algoritm_4(t_ps *ps)
+{
+	ft_find_min(ps);
+	while (ps->a_min_pos != 0)
+	{
+		ra(ps);
+		ps->a_min_pos--;
+	}
+	pb(ps);
+	ft_algoritm_3(ps);
+	pa(ps);
+}
+
 void	ft_algoritm(t_ps *ps)
 {
 	if (ps->a_len == 2)
 		ft_algoritm_2(ps);
-	else if (ps->a_len <= 3)
+	else if (ps->a_len == 3)
 		ft_algoritm_3(ps);
-	else if (ps->a_len <= 5)
+	else if (ps->a_len == 4)
+		ft_algoritm_4(ps);
+	else if (ps->a_len == 5)
 		ft_algoritm_5(ps);
 }
 
@@ -140,9 +153,7 @@ void	ft_algoritm_3(t_ps *ps)
 void	ft_push_top_min(t_ps *ps)
 {
 	if (ps->a_min_pos == 0)
-	{
 		pb(ps);
-	}
 	else if (ps->a_min_pos == 1)
 	{
 		ra(ps);
