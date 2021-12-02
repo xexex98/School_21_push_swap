@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:40:26 by mbarra            #+#    #+#             */
-/*   Updated: 2021/12/01 21:11:42 by mbarra           ###   ########.fr       */
+/*   Updated: 2021/12/02 20:54:00 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ typedef struct s_ps
 	int		*stack_b;
 	int		a_len;
 	int		b_len;
+	int		a_max;
+	int		a_min;
+	int		b_max;
+	int		b_min;
+	int		a_min_pos;
+	int		a_max_pos;
 }				t_ps;
 
 long int	ft_atoi(const char *nptr);
