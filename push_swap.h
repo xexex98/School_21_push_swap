@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:40:26 by mbarra            #+#    #+#             */
-/*   Updated: 2021/12/06 15:05:42 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/17 20:49:33 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ typedef struct s_ps
 {
 	int		*stack_a;
 	int		*stack_b;
+	int		*index;
 	int		a_len;
 	int		b_len;
+	int		arrsize;
 	int		a_max;
 	int		a_min;
 	int		b_max;
@@ -31,11 +33,6 @@ typedef struct s_ps
 	int		a_min_pos;
 	int		a_max_pos;
 }				t_ps;
-
-void		ft_putstr(char *str);
-int			ft_strlen(char *str);
-int			ft_isdigit(int c);
-long int	ft_atoi(const char *nptr);
 
 void		ft_push_top_min_5(t_ps *ps);
 void		ft_push_top_max_5(t_ps *ps);
@@ -47,17 +44,18 @@ void		ft_algoritm_4(t_ps *ps);
 
 void		ft_find_max(t_ps *ps);
 void		ft_find_min(t_ps *ps);
+void		ft_index(t_ps *ps);
+void		*ft_calloc(size_t nmemb, size_t size);
 
 int			ft_correct(char *str);
 int			ft_sorted(t_ps *ps);
 int			ft_dup(int *str, int len);
 
-int			ft_init_struct(t_ps *ps, int argc);
-void		ft_algoritm(t_ps *ps);
-
-void		sa(t_ps *ps);
-void		sb(t_ps *ps);
-void		ss(t_ps *ps);
+void		ft_putstr(char *str);
+int			ft_strlen(char *str);
+int			ft_isdigit(int c);
+long int	ft_atoi(const char *nptr);
+void		*ft_memset(void *s, int c, size_t n);
 
 void		pa(t_ps *ps);
 void		pb(t_ps *ps);
@@ -69,5 +67,13 @@ void		rr(t_ps *ps);
 void		rra(t_ps *ps);
 void		rrb(t_ps *ps);
 void		rrr(t_ps *ps);
+
+void		sa(t_ps *ps);
+void		sb(t_ps *ps);
+void		ss(t_ps *ps);
+
+int			ft_init_struct(t_ps *ps, int argc);
+void		ft_algoritm(t_ps *ps);
+void		ft_index(t_ps *ps);
 
 #endif

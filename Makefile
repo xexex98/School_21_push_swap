@@ -6,43 +6,48 @@
 #    By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 13:37:47 by mbarra            #+#    #+#              #
-#    Updated: 2021/12/02 22:36:20 by mbarra           ###   ########.fr        #
+#    Updated: 2022/01/17 20:46:56 by mbarra           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	push_swap.a\
+NAME	=	push_swap\
 
 HEADER	=	push_swap.h\
 
-SRC		=	push_swap.c\
+SRC		=	ft_algoritm_5.c\
+			ft_algoritm.c\
+			ft_find_max_min.c\
+			ft_rules_correct.c\
+			ft_utils_1.c\
 			pa_pb.c\
+			push_swap.c\
 			ra_rb_rr.c\
 			rra_rrb_rrr.c\
 			sa_sb_ss.c\
-			ft_funcs_1.c\
+
 	
-OBJS	=	${SRC:.c=.o}
+OBJ	=	${SRC:.c=.o}
 
 CC 			= gcc
 RM 			= rm -f
-FLAGS 		= -Wall -Wextra -Werror -I$(HEADER)
+CFLAGS 		= -Wall -Wextra -Werror -I$(HEADER)
 
-OBJECTS = $(patsubst %.c, %.o, $(SRC))
+%.o: %.c $(HEADER)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME) 
 
-$(NAME): $(OBJECTS) $(HEADER)
-	@ar rcs $(NAME) $?
-	@rm -rf *.o
-%.o: %.c $(HEADER)
-	@$(CC) $(FLAGS) $< -o $@
+$(NAME): $(OBJ) $(HEADER)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	@rm -f *.o
+	@echo "\033[32mPush_Swap Compiled! ᕦ(\033[31m♥\033[32m_\033[31m♥\033[32m)ᕤ"
 
 clean:
-	@$(RM) $(OBJECTS)
+	@$(RM) $(OBJ)
 
-fclean: clean
+f: clean
 	@$(RM) $(NAME)
 
-re: @fclean all
+re: f all
 
-.PHONY: @all clean fclean re
+.PHONY: all clean f re

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_funcs_1.c                                       :+:      :+:    :+:   */
+/*   ft_utils_1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 20:18:57 by mbarra            #+#    #+#             */
-/*   Updated: 2021/12/01 20:45:10 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/17 19:51:59 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,16 @@ long int	ft_atoi(const char *nptr)
 			return (0);
 	}
 	return (num * minus);
+}
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*p;
+
+	p = (unsigned char *) s;
+	while (n--)
+	{
+		*p++ = (unsigned char) c;
+	}
+	return (s);
 }
