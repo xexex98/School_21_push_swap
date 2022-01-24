@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:37:44 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/21 19:45:21 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/24 17:37:38 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int	ft_init_struct(t_ps *ps, int argc)
 	ps->index = (int *)malloc(sizeof(int) * (argc - 1));
 	if (!ps->index)
 		return (0);
+	ps->index_b = (int *)malloc(sizeof(int) * (argc - 1));
+	if (!ps->index_b)
+		return (0);
 	return (1);
 }
 
@@ -43,17 +46,20 @@ void print_stack(t_ps *ps)
 	int	i;
 
 	i = -1;
+	
 	printf("\nstack_a:\n");
-
 	while (++i < ps->a_len)
 		printf("%i\n", ps->stack_a[i]);
-	printf("\nstack_b:\n");
 	
+	printf("\nstack_b:\n");
 	i = -1;
 	while (++i < ps->b_len)
 		printf("%i\n", ps->stack_b[i]);
+	i = -1;
+	printf("\nindex_b:\n");
+	while (++i < ps->b_len)
+		printf("%i\n", ps->index_b[i]);
 	printf("\n");
-	
 }
 
 
@@ -112,30 +118,92 @@ void	ft_algoritm_100(t_ps *ps)
 		ft_find_max(ps);
 		if (ps->stack_a[0] == 1 || ps->stack_a[0] == ps->arrsize || ps->stack_a[0] == mid)
 			ra(ps);
-		if (ps->stack_b[0] < mid)
-		{
-			pb(ps);
-		}
-		else if (ps->stack_b[0] > mid)
-		{
-			pb(ps);
-		}
-	}
-	// ra(ps);
-	ft_algoritm_3(ps);
-	print_stack(ps);
-
-	while (ps->b_len != 0)
-	{
-		if (ps->stack_b[0] > ps->stack_a[0] && ps->stack_b[0] < ps->stack_a[0])
-		{
-			ra(ps);
-			pa(ps);
-		}
 		else
-			rb(ps);
+			pb(ps);
 
 	}
+	ft_algoritm_3(ps);
+	// printf("i = %i\n", i);
+	ft_index_b(ps);
+	i = 0;
+	j = 0;
+	int price = 0;
+	//текущая позиция + сколько действий надо сделать в стеке а чтобы однять его наверх
+
+	while (i < ps->b_len)
+	{
+		while (ps->stack_b[i] > ps->stack_a[j])
+		{
+			price = ps->stack_b[i] + ps->stack_a[j];
+		}
+	}
+	
+	
+	
+	while (i < ps->b_len)
+	{
+		price = 0;
+		while (j < ps->a_len)
+		{
+			ps->stack_a[i] < 
+			j++;
+		}
+		i++;
+	}
+	// printf("%i\n", ps->stack_a[ps->a_len - 1]);
+	// while (i < ps->b_len)
+	// while (ps->b_len != 0)
+	// {
+	// 	if (ps->stack_b[0] == ps->stack_a[0] + 1)
+	// 	{
+	// 		ra(ps);
+	// 		pa(ps);
+	// 	}
+	// 	if (ps->stack_b[0] == ps->stack_a[ps->a_len - 1] - 1)
+	// 	{
+	// 		rra(ps);
+	// 		pa(ps);
+	// 	}
+	// ft_index_b(ps);
+
+	// 	if (ps->stack_b[0] > ps->stack_a[0] && ps->stack_b[0] < ps->stack_a[1])
+	// 	{
+	// 		ra(ps);
+	// 		pa(ps);
+	// 	}
+	// 	else
+	// 		ra(ps);
+	// 	i++;
+	// }
+	// printf("i = %i\n", i);
+	print_stack(ps);
+	i = 0;
+	while (i < ps->a_len)
+	{
+		
+		i++;
+	}
+	// while (ps->b_len != 0)
+	// {
+	// 	while (ps->stack_a[0] < ps->stack_b[0])
+	// 	{
+			
+	// 	}
+		
+
+	// }
+
+	// while (ps->b_len != 0)
+	// {
+	// 	if (ps->stack_b[0] > ps->stack_a[0] && ps->stack_b[0] < ps->stack_a[0])
+	// 	{
+	// 		ra(ps);
+	// 		pa(ps);
+	// 	}
+	// 	else
+	// 		rb(ps);
+
+	// }
 	
 	// int mid_a;
 	// int	max_b;

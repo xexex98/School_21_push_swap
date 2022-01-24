@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:40:26 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/21 15:08:28 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/24 15:51:41 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_ps
 	int		*stack_a;
 	int		*stack_b;
 	int		*index;
+	int		*index_b;
+
 	int		a_len;
 	int		b_len;
 	int		arrsize;
@@ -51,6 +53,8 @@ void		ft_algoritm_4(t_ps *ps);
 void		ft_find_max(t_ps *ps);
 void		ft_find_min(t_ps *ps);
 void		ft_index(t_ps *ps);
+void		ft_index_b(t_ps *ps);
+
 void		*ft_calloc(size_t nmemb, size_t size);
 
 int			ft_correct(char *str);
