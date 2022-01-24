@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:40:26 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/17 20:49:33 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/21 15:08:28 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,13 @@ typedef struct s_ps
 	int		b_max;
 	int		b_min;
 	int		a_min_pos;
+	int		b_min_pos;
+
 	int		a_max_pos;
+	int		b_max_pos;
+
+	int		a_mid_pos;
+	int		b_mid_pos;
 }				t_ps;
 
 void		ft_push_top_min_5(t_ps *ps);
@@ -74,6 +80,5 @@ void		ss(t_ps *ps);
 
 int			ft_init_struct(t_ps *ps, int argc);
 void		ft_algoritm(t_ps *ps);
-void		ft_index(t_ps *ps);
 
 #endif

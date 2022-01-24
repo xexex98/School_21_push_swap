@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:35:48 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/17 20:42:50 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/20 12:51:59 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pa(t_ps *ps)
 
 	if (ps->b_len == 0)
 		return ;
-	i = ps->arrsize;
+	i = ps->a_len - 1;
 	while (i >= 0)
 	{
 		ps->stack_a[i + 1] = ps->stack_a[i];
@@ -43,7 +43,7 @@ void	pb(t_ps *ps)
 
 	if (ps->a_len == 0)
 		return ;
-	i = ps->arrsize;
+	i = ps->b_len - 1;
 	while (i >= 0)
 	{
 		ps->stack_b[i + 1] = ps->stack_b[i];

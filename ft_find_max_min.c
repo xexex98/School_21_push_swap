@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 13:59:45 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/17 20:50:03 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/18 13:42:38 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_index(t_ps *ps)
 	{
 		ps->index[i] = ps->stack_a[i];
 		j = -1;
-		z = 0;
+		z = 1;
 		while (++j < ps->a_len)
 			if (ps->index[i] > ps->stack_a[j])
 				z++;
