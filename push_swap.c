@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:37:44 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/24 17:37:38 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/24 21:52:24 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ void print_stack(t_ps *ps)
 	i = -1;
 	while (++i < ps->b_len)
 		printf("%i\n", ps->stack_b[i]);
-	i = -1;
-	printf("\nindex_b:\n");
-	while (++i < ps->b_len)
-		printf("%i\n", ps->index_b[i]);
-	printf("\n");
+	// i = -1;
+	// printf("\nindex_b:\n");
+	// while (++i < ps->b_len)
+	// 	printf("%i\n", ps->index_b[i]);
+	// printf("\n");
 }
 
 
@@ -128,153 +128,43 @@ void	ft_algoritm_100(t_ps *ps)
 	i = 0;
 	j = 0;
 	int price = 0;
+	int	min_price = ps->arrsize;
+	int	min_price_a;
+	
+	int	min_price_b;
 	//текущая позиция + сколько действий надо сделать в стеке а чтобы однять его наверх
-
-	while (i < ps->b_len)
+	while (ps->b_len != 0)
 	{
-		while (ps->stack_b[i] > ps->stack_a[j])
+		while (i < ps->b_len)
 		{
-			price = ps->stack_b[i] + ps->stack_a[j];
+			while (ps->stack_b[i] > ps->stack_a[j])
+			{
+				j++;
+			}
+			price = i + j;
+			printf ("price: %i\n", price);
+			if (price < min_price)
+			{
+				min_price = price;
+				min_price_a = j;
+				min_price_b = i;
+			}
+			printf ("min_price_a: %i\n", min_price_a);
+			printf ("min_price_b: %i\n", min_price_b);
+			j = 0;
+			i++;
 		}
-	}
-	
-	
-	
-	while (i < ps->b_len)
-	{
-		price = 0;
-		while (j < ps->a_len)
+		while (min_price_a--)
+			ra(ps);
+		while (min_price_b >= 0)
 		{
-			ps->stack_a[i] < 
-			j++;
+			if (min_price_b != 0)
+				rrb(ps);
+			pa(ps);
+			min_price_b--;
 		}
-		i++;
+		print_stack(ps);
 	}
-	// printf("%i\n", ps->stack_a[ps->a_len - 1]);
-	// while (i < ps->b_len)
-	// while (ps->b_len != 0)
-	// {
-	// 	if (ps->stack_b[0] == ps->stack_a[0] + 1)
-	// 	{
-	// 		ra(ps);
-	// 		pa(ps);
-	// 	}
-	// 	if (ps->stack_b[0] == ps->stack_a[ps->a_len - 1] - 1)
-	// 	{
-	// 		rra(ps);
-	// 		pa(ps);
-	// 	}
-	// ft_index_b(ps);
-
-	// 	if (ps->stack_b[0] > ps->stack_a[0] && ps->stack_b[0] < ps->stack_a[1])
-	// 	{
-	// 		ra(ps);
-	// 		pa(ps);
-	// 	}
-	// 	else
-	// 		ra(ps);
-	// 	i++;
-	// }
-	// printf("i = %i\n", i);
-	print_stack(ps);
-	i = 0;
-	while (i < ps->a_len)
-	{
-		
-		i++;
-	}
-	// while (ps->b_len != 0)
-	// {
-	// 	while (ps->stack_a[0] < ps->stack_b[0])
-	// 	{
-			
-	// 	}
-		
-
-	// }
-
-	// while (ps->b_len != 0)
-	// {
-	// 	if (ps->stack_b[0] > ps->stack_a[0] && ps->stack_b[0] < ps->stack_a[0])
-	// 	{
-	// 		ra(ps);
-	// 		pa(ps);
-	// 	}
-	// 	else
-	// 		rb(ps);
-
-	// }
-	
-	// int mid_a;
-	// int	max_b;
-	// int	mid_b;
-
-	// mid_a = ps->a_len / 2;
-	// max_b = mid_a;
-	// mid_b = max_b / 2 + 1;
-	// i = 0;
-
-
-	// while (ps->a_len != 3)
-	// {
-	// 	if (ps->stack_a[0] == ps->stack_a[ps->a_min_pos] || ps->stack_a[0] == ps->stack_a[ps->a_max_pos] || ps->stack_a[0] == mid_a)
-	// 		ra(ps);
-	// 	else if (ps->stack_a[0] < mid_a)
-	// 	{
-	// 		pb(ps);
-	// 	}
-	// 	else if (ps->stack_a[0] > mid_a)
-	// 	{
-	// 		pb(ps);
-	// 	}
-	// }
-	// if (ps->stack_a[0] > ps->stack_a[1])
-	// 	sa(ps);
-	
-	// i = 0;
-	// ft_find_max_b(ps);
-	// pb(ps);
-	// printf("%i\n", ps->b_max_pos);
-	// printf("%i\n",ps->stack_b[ps->b_max_pos]);
-	// printf("%i\n", ps->stack_b[0]);
-
-	// int index = 2;
-	// while (ps->b_len != 0)
-	// {
-	// 	ft_find_max_b(ps);
-	// 	if (ps->stack_b[0] == index)
-	// 	{
-	// 		pa(ps);
-	// 		ra(ps);
-	// 		index++;
-	// 	}
-	// 	else
-	// 		rb(ps);
-	// }
-	// print_stack(ps);
-
-		// ft_find_max_b(ps);
-		// if (ps->b_max_pos == ps->stack_b[0])
-		// {
-		// 	// printf("he");
-		// 	pa(ps);
-		// }
-		// else
-		// {
-		// 	ft_find_max_b(ps);
-		// 	ft_find_min_b(ps);
-		// 	if (ps->b_min_pos <= ps->b_len / 2)
-		// 		rb(ps);
-		// 	else
-		// 		rrb(ps); 
-		// 	// if (ps->b_max_pos < ps->b_len / 2)
-		// 	// 	rb(ps);
-		// 	// else if (ps->b_max_pos >= ps->b_len / 2)
-		// 	// 	rrb(ps);
-		// }
-	// // while (ft_sorted(ps) != 1)
-	// // 	ra(ps);
-	
 	return ;
 }
 
