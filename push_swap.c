@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:37:44 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/24 21:52:24 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/25 17:45:35 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void	ft_algoritm_100(t_ps *ps)
 {
 	int	i;
 	int j;
-	int k;
 	int	mid;
 
 	mid = ps->arrsize / 2;
@@ -111,6 +110,20 @@ void	ft_algoritm_100(t_ps *ps)
 	i = -1;
 	while (++i < ps->a_len)
 		ps->stack_a[i] = ps->index[i];
+
+
+	// int a = 0;
+	// int b = 0;
+	
+	// pb(ps);
+	// while (ps->stack_b[0] < ps->stack_a[ps->a_len - 1 - b])
+	// {
+	// 	a++;
+	// 	b++;
+	// }
+	// printf ("a = %i\n", a);
+	// 	print_stack(ps);
+	// return ;
 
 	while (ps->a_len != 3)
 	{
@@ -132,39 +145,80 @@ void	ft_algoritm_100(t_ps *ps)
 	int	min_price_a;
 	
 	int	min_price_b;
+	int	rev_a = 0;
+	int k = 0;
+	int z = 0;
 	//текущая позиция + сколько действий надо сделать в стеке а чтобы однять его наверх
+	// printf ("%i", ps->stack_a[ps->a_len - 1]);
+
 	while (ps->b_len != 0)
 	{
+		print_stack(ps);
+		min_price = ps->arrsize;
+		price = 0;
 		while (i < ps->b_len)
 		{
+			// ps->stack_b[i] > ps->stack_a[j] && ps->stack_b[i] < ps->stack_a[j]
+			// while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1])
+			// 	ra(ps);
+			// if (ps->stack_b[i] > ps->stack_a[j] && ps->stack_b[i] > ps->stack_a[j])
+			// 	while (ps->stack_b[i] > ps->stack_a[j])
+			// 		j++; //крутить stack_a;
+			// if (ps->stack_b[i] > ps->stack_a[j] && ps->stack_b[i] < ps->stack_a[j])
+			// 	while (ps->stack_b[i] > ps->stack_a[j])
+				
 			while (ps->stack_b[i] > ps->stack_a[j])
+				j++; //крутить stack_a;
+			// while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1])
+			// 	k++;
+			if (ps->stack_b[i] < ps->stack_a[ps->a_len - 1] && ps->stack_a[0] > ps->stack_b[i])
 			{
-				j++;
+				while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1 - z])
+				{
+					k++;
+					z++;
+				}
 			}
-			price = i + j;
-			printf ("price: %i\n", price);
+			printf("k = %i\n", k);
+			price = i + j + k;
 			if (price < min_price)
 			{
 				min_price = price;
 				min_price_a = j;
 				min_price_b = i;
+				rev_a = k;
+				printf ("min_price_a %i\n", min_price_a);
+				printf ("min_price_b %i\n", min_price_b);
 			}
-			printf ("min_price_a: %i\n", min_price_a);
-			printf ("min_price_b: %i\n", min_price_b);
 			j = 0;
+			k = 0;
+			z = 0;
 			i++;
 		}
-		while (min_price_a--)
-			ra(ps);
-		while (min_price_b >= 0)
+		while (rev_a > 0)
 		{
-			if (min_price_b != 0)
-				rrb(ps);
-			pa(ps);
-			min_price_b--;
+			rev_a--;
+			rra(ps);
 		}
-		print_stack(ps);
+		while (min_price_a > 0)
+		{
+			min_price_a--;
+			ra(ps);
+		}
+		while (min_price_b > 0)
+		{
+			min_price_b--;
+			rb(ps);
+		}
+
+		pa(ps);
+		i = 0;
+
 	}
+	// while (ft_sorted(ps) != 1)
+		// ra(ps);
+	print_stack(ps);
+
 	return ;
 }
 
