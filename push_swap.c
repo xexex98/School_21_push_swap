@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:37:44 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/25 17:45:35 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/26 21:18:03 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,115 +111,322 @@ void	ft_algoritm_100(t_ps *ps)
 	while (++i < ps->a_len)
 		ps->stack_a[i] = ps->index[i];
 
-
-	// int a = 0;
-	// int b = 0;
-	
-	// pb(ps);
-	// while (ps->stack_b[0] < ps->stack_a[ps->a_len - 1 - b])
-	// {
-	// 	a++;
-	// 	b++;
-	// }
-	// printf ("a = %i\n", a);
-	// 	print_stack(ps);
-	// return ;
-
 	while (ps->a_len != 3)
 	{
-		ft_find_min(ps);
-		ft_find_max(ps);
 		if (ps->stack_a[0] == 1 || ps->stack_a[0] == ps->arrsize || ps->stack_a[0] == mid)
 			ra(ps);
 		else
 			pb(ps);
-
 	}
 	ft_algoritm_3(ps);
-	// printf("i = %i\n", i);
-	ft_index_b(ps);
+	// i = 0;
+	// j = 0;
+
+	// print_stack(ps);
+
+	//stack_b
+			// int price_b = 0;
+
+			// i = 0;
+			// while (i < ps->b_len)
+			// {
+			// 	if (i <= ps->b_len / 2)
+			// 		price_b = i;
+			// 	else if (i > ps->b_len / 2)
+			// 		price_b = ps->b_len - i;
+			// 	printf("ind_b:%i b:%i\n", i, price_b);
+			// 	i++;
+			// }
+
+	//stack_a
+	int price_a = 0;
+	int price = 0;
+	int	min_price = 1000;
+	int	min_price_ra;
+	int	min_price_rra;
+
+	int	min_price_b;
+	j = 0;
+	// while (j < ps->a_len)
+	// {
+	// 	if (j <= ps->a_len / 2)
+	// 		price_a = j;
+	// 	else if (j > ps->a_len / 2)
+	// 		price_a = ps->a_len - j;
+	// 	printf("ind_a:%i a:%i\n", j, price_a);
+	// 	j++;
+	// }
+	// print_stack(ps);
+	// print_stack(ps);
+
+	// pb(ps);
+	// pb(ps);
+	// pb(ps);
+	// pb(ps);
+	// pb(ps);
+	// pb(ps);
+	// pb(ps);
+	// rrb(ps);
+	// pa(ps);
+
+	// print_stack(ps);
+
+	// return ;
+	int	nra = 0;
+	int	nrra = 0;
+	int price_b = 0;
+	int	a_ra = 0;
+	int	b_ra = 0;
+	int	a_rra = 0;
+	int	b_rra = 0;
+	int flag = 0;
 	i = 0;
 	j = 0;
-	int price = 0;
-	int	min_price = ps->arrsize;
-	int	min_price_a;
-	
-	int	min_price_b;
-	int	rev_a = 0;
-	int k = 0;
-	int z = 0;
-	//текущая позиция + сколько действий надо сделать в стеке а чтобы однять его наверх
-	// printf ("%i", ps->stack_a[ps->a_len - 1]);
-
+	// printf("\n\n");
 	while (ps->b_len != 0)
 	{
-		print_stack(ps);
-		min_price = ps->arrsize;
-		price = 0;
+		// print_stack(ps);
+
 		while (i < ps->b_len)
 		{
-			// ps->stack_b[i] > ps->stack_a[j] && ps->stack_b[i] < ps->stack_a[j]
-			// while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1])
-			// 	ra(ps);
-			// if (ps->stack_b[i] > ps->stack_a[j] && ps->stack_b[i] > ps->stack_a[j])
-			// 	while (ps->stack_b[i] > ps->stack_a[j])
-			// 		j++; //крутить stack_a;
-			// if (ps->stack_b[i] > ps->stack_a[j] && ps->stack_b[i] < ps->stack_a[j])
-			// 	while (ps->stack_b[i] > ps->stack_a[j])
-				
-			while (ps->stack_b[i] > ps->stack_a[j])
-				j++; //крутить stack_a;
-			// while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1])
-			// 	k++;
-			if (ps->stack_b[i] < ps->stack_a[ps->a_len - 1] && ps->stack_a[0] > ps->stack_b[i])
-			{
-				while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1 - z])
+			price_b = i;
+		
+			// if (i <= ps->b_len / 2)
+			// 	price_b = i;
+			// else if (i > ps->b_len / 2)
+			// 	price_b = ps->b_len - i;
+				if (ps->stack_b[i] > ps->stack_a[0] && ps->stack_b[i] < ps->stack_a[ps->a_len - 1])
 				{
-					k++;
-					z++;
+					while (ps->stack_b[i] > ps->stack_a[nra])
+						nra++;
+					while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1 - nrra])
+						nrra++;
 				}
-			}
-			printf("k = %i\n", k);
-			price = i + j + k;
-			if (price < min_price)
-			{
-				min_price = price;
-				min_price_a = j;
-				min_price_b = i;
-				rev_a = k;
-				printf ("min_price_a %i\n", min_price_a);
-				printf ("min_price_b %i\n", min_price_b);
-			}
-			j = 0;
-			k = 0;
-			z = 0;
+				else if (ps->stack_b[i] > ps->stack_a[0] && ps->stack_b[i] > ps->stack_a[ps->a_len - 1])
+				{
+					while (ps->stack_b[i] > ps->stack_a[nra])
+						nra++;
+					// while (ps->stack_b[i] > ps->stack_a[ps->a_len - 1 - nrra])
+					while (ps->stack_b[i] > ps->stack_a[ps->a_len - 1 - nrra])
+						nrra++;
+					while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1 - nrra])
+						nrra++;
+					// while (ps->stack_b[i] > ps->stack_a[ps->a_len - nrra] && ps->stack_b[i] < ps->stack_a[ps->a_len - 1 - nrra])
+				}
+				else if (ps->stack_b[i] < ps->stack_a[0] && ps->stack_b[i] < ps->stack_a[ps->a_len - 1])
+				{
+					while (ps->stack_b[i] < ps->stack_a[nra])
+						nra++;
+					while (ps->stack_b[i] > ps->stack_a[nra])
+						nra++;
+					while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1 - nrra])
+						nrra++;
+					// while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1 - nrra])
+						// nrra++;
+				}
+				else if (ps->stack_b[i] < ps->stack_a[0] && ps->stack_b[i] > ps->stack_a[ps->a_len - 1])
+				{
+					while (ps->stack_b[i] > ps->stack_a[nra])
+						nra++;
+					while (ps->stack_b[i] > ps->stack_a[ps->a_len - 1 - nrra])
+						nrra++;
+				}
+				if (nra < nrra)
+				{
+					flag = 0;
+					price = price_b + nra;
+				}
+				else if (nra > nrra)
+				{
+					flag = 1;
+					price = price_b + nrra;
+				}
+				// printf("nra %i  ", nra);
+				// printf("nrra %i\n", nrra);
+				// printf ("price: %i\n", price);
+				
+				if (price < min_price)
+				{
+					min_price = price;
+					if (flag == 0)
+					{
+						a_ra = nra;
+						b_ra = price_b;
+						a_rra = 0;
+						b_rra = 0;
+					}
+					else if (flag == 1)
+					{
+						a_ra = 0;
+						b_ra = 0;
+						a_rra = nrra;
+						b_rra = price_b;
+					}
+				}
+				nra = 0;
+				nrra = 0;
 			i++;
+
 		}
-		while (rev_a > 0)
+		i = 0;
+		min_price = 1000;
+		price = 0;
+		// printf("\n\n");
+		// printf ("a_rra %i a_ra %i b_rra %i b_ra %i   ", a_rra, a_ra, b_rra, b_ra);
+		// 	printf ("price: %i\n", price);
+
+		// print_stack(ps);
+
+		while (a_rra > 0)
 		{
-			rev_a--;
+			a_rra--;
 			rra(ps);
 		}
-		while (min_price_a > 0)
+		while (a_ra > 0)
 		{
-			min_price_a--;
+			a_ra--;
 			ra(ps);
 		}
-		while (min_price_b > 0)
+		while (b_rra > 0)
 		{
-			min_price_b--;
+			b_rra--;
 			rb(ps);
 		}
+		while (b_ra > 0)
+		{
+			b_ra--;
+			rb(ps);
+		}
+		// printf("b %i\n", price_b);
+		// printf("rra %i\n", nrra);
+		// printf ("flag: %i\n", flag);
 
 		pa(ps);
-		i = 0;
-
 	}
-	// while (ft_sorted(ps) != 1)
-		// ra(ps);
+	while (ft_sorted(ps) != 1)
+		ra(ps);
 	print_stack(ps);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 	return ;
+	// while (ps->b_len != 0)
+	// {
+	// 	while (i < ps->b_len)
+	// 	{
+	// 		if (i <= ps->b_len / 2)
+	// 			price_b = i;
+	// 		else if (i > ps->b_len / 2)
+	// 			price_b = ps->b_len - i;
+
+	// 		// if (ps->stack_b[i] > ps->stack_a[ps->a_len - 1])
+	// 			while (ps->stack_b[i] > ps->stack_a[ra])
+	// 				ra++;
+	// 		// else if (ps->stack_b[i] < ps->stack_a[ps->a_len - 1] && ps->stack_a[0] > ps->stack_b[i])
+	// 		// 	while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1 - rra++])
+
+	// 		if (ps->stack_a[ps->a_len - 1] > ps->stack_b[0])
+
+
+
+	// 		price = price_b + ra + rra;
+	// 		printf ("price %i\n", price);
+
+	// 		if (price < min_price)
+	// 		{
+	// 			min_price = price;
+	// 			min_price_ra = ra;
+	// 			min_price_rra = rra;
+	// 			min_price_b = price_b;
+	// 		}
+	// 		i++;
+	// 		ra = 0;
+	// 		rra = 0;
+	// 	}
+
+	// 	pa(ps);
+	// }
+	// print_stack(ps);
+	// return ;
+
+	// while (ps->b_len != 0)
+	// {
+	// 	print_stack(ps);
+	// 	min_price = ps->arrsize;
+	// 	price = 0;
+	// 	while (i < ps->b_len)
+	// 	{
+	// 		while (ps->stack_b[i] > ps->stack_a[j])
+	// 			j++;
+	// 		if (ps->stack_b[i] < ps->stack_a[ps->a_len - 1] && ps->stack_a[0] > ps->stack_b[i])
+	// 			while (ps->stack_b[i] < ps->stack_a[ps->a_len - 1 - k])
+	// 				k++;
+	// 		printf("k = %i\n", k);
+	// 		price = i + j + k;
+	// 		if (price < min_price)
+	// 		{
+	// 			min_price = price;
+
+	// 			min_price_a = j;
+	// 			rev_a = k;
+
+	// 			min_price_b = i;
+	// 			if (min_price_b >= ps->b_len / 2)
+	// 			{
+	// 				min_price_b = ps->b_len - (ps->b_len - i);
+	// 			}
+	// 			printf ("min_price_a %i\n", min_price_a);
+	// 			printf ("min_price_b %i\n", min_price_b);
+	// 		}
+	// 		j = 0;
+	// 		k = 0;
+	// 		i++;
+	// 	}
+	// 	while (rev_a > 0)
+	// 	{
+	// 		rev_a--;
+	// 		rra(ps);
+	// 	}
+	// 	while (min_price_a > 0)
+	// 	{
+	// 		min_price_a--;
+	// 		ra(ps);
+	// 	}
+	// 	if (i >= ps->b_len / 2)
+	// 	{
+	// 		while (min_price_b > 0)
+	// 		{
+	// 			min_price_b--;
+	// 			rrb(ps);
+	// 		}
+	// 	}
+	// 	else if (i < ps->b_len / 2)
+	// 	{	
+	// 		while (min_price_b > 0)
+	// 		{
+	// 			min_price_b--;
+	// 			rb(ps);
+	// 		}
+	// 	}
+	// 	pa(ps);
+	// 	i = 0;
+
+	// }
+	// // while (ft_sorted(ps) != 1)
+	// 	// ra(ps);
+	// print_stack(ps);
+
 }
 
 void	ft_algoritm(t_ps *ps)
