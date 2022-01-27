@@ -2,7 +2,7 @@
 
 x=1
 k=$1
-while [ $x -le 10 ]
+while [ $x -le 50 ]
 do
 	ARG=$(python3 getrandom.py $k);
 	# echo "$ARG"

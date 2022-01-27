@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:37:44 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/27 20:31:29 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/27 21:44:45 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,28 @@ void	ft_algoritm_main(t_ps *ps)
 	int	i;
 	int	j;
 
+
 	ft_index(ps);
 	i = -1;
 	while (++i < ps->a_len)
 		ps->stack_a[i] = ps->index[i];
-	while (ps->a_len != 3)
+	while (ps->a_len != 2)
 	{
-		if (ps->stack_a[0] == 1 || ps->stack_a[0] == ps->arrsize
-			|| ps->stack_a[0] == ps->arrsize / 2)
+		if (ps->stack_a[0] == 1 || ps->stack_a[0] == ps->arrsize)
 			ra(ps);
-		else
+		else if (ps->stack_a[0] <= ps->arrsize / 2)
 			pb(ps);
+		else
+		{
+			pb(ps);
+			rb(ps);
+		}
+		// pb(ps);
 	}
-	ft_algoritm_3(ps);
+	// print_stack(ps);
+	// return ;
+
+	// ft_algoritm_3(ps);
 	int price = 0;
 	int	min_price = ps->arrsize * 10;
 
@@ -132,54 +141,87 @@ void	ft_algoritm_main(t_ps *ps)
 				while (ps->stack_b[i] > ps->stack_a[ps->a_len - 1 - nrra])
 					nrra++;
 			}
-			if (nra < nrra)
+
+			if (flag == 5)
 			{
-				flag = 0;
-				price = price_b_rb + price_b_rrb + nra;
+				// int	reminder_ra;
+				// int faq;
+
+
+				
+				
+				
+
+				// if (nra >= price_b_rb)
+				// {
+				// 	reminder_ra = nra - price_b_rb;
+				// 	if (reminder_ra < ps->b_len / 2)
+				// 		while (price_b_rrb-- > 0)
+				// 			rr();
+				// 	else if (reminder_ra > ps->b_len / 2)
+				// 		while (price_b_rrb-- > 0)
+					
+					
+				// 	faq = price_b_rb + reminder_ra;
+				// }
+				// else if (nra < price_b_rb)
+				// 	reminder_ra = price_b_rb - nra;
+				
+				// if (reminder_ra + )
+				// nra + price_b_rb < nra + price_b_rrb;
 			}
-			else if (nra > nrra)
+			else
 			{
-				flag = 1;
-				price = price_b_rb + price_b_rrb + nrra;
-			}
-			if (price < min_price)
-			{
-				min_price = price;
-				if (flag == 0)
+				if (nra < nrra)
 				{
-					a_ra = nra;
-					b_ra = price_b_rb;
-					b_rra = price_b_rrb;
-					a_rra = 0;
+					flag = 0;
+					price = price_b_rb + price_b_rrb + nra;
 				}
-				else if (flag == 1)
+				else if (nra > nrra)
 				{
-					a_rra = nrra;
-					b_ra = price_b_rb;
-					b_rra = price_b_rrb;
-					a_ra = 0;
+					flag = 1;
+					price = price_b_rb + price_b_rrb + nrra;
+				}
+				if (price < min_price)
+				{
+					min_price = price;
+					if (flag == 0)
+					{
+						a_ra = nra;
+						b_ra = price_b_rb;
+						b_rra = price_b_rrb;
+						a_rra = 0;
+					}
+					else if (flag == 1)
+					{
+						a_rra = nrra;
+						b_ra = price_b_rb;
+						b_rra = price_b_rrb;
+						a_ra = 0;
+					}
 				}
 			}
 			i++;
 		}
-		while (a_rra-- > 0)
+		if (flag == 1 || flag == 0)
 		{
-			if (b_rra-- > 0)
-				rrr(ps);
-			else
-				rra(ps);
+			while (a_rra-- > 0)
+				if (b_rra-- > 0)
+					rrr(ps);
+				else
+					rra(ps);
+
+			while (a_ra-- > 0)
+				if (b_ra-- > 0)
+					rr(ps);
+				else
+					ra(ps);
+
+			while (b_rra-- > 0)
+				rrb(ps);
+			while (b_ra-- > 0)
+				rb(ps);
 		}
-		while (a_ra-- > 0)
-		{
-			if (b_ra-- > 0)
-				rr(ps);
-			else
-				ra(ps);
-		}
-		while (b_rra-- > 0)
-			rrb(ps);
-		while (b_ra-- > 0)
-			rb(ps);
 		pa(ps);
 	}
 	ft_find_min(ps);
