@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 13:59:45 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/27 18:04:35 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/28 18:53:24 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,27 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	ft_memset(str, '\0', mem);
 	return (str);
+}
+
+void	min_max_in_a_and_index(t_ps *ps)
+{
+	int	i;
+
+	ft_index(ps);
+	i = -1;
+	while (++i < ps->a_len)
+		ps->stack_a[i] = ps->index[i];
+	while (ps->a_len != 2)
+	{
+		if (ps->stack_a[0] == 1 || ps->stack_a[0] == ps->arrsize)
+			ra(ps);
+		else if (ps->stack_a[0] <= ps->arrsize / 2)
+			pb(ps);
+		else
+		{
+			pb(ps);
+			rb(ps);
+		}
+	}
+	return ;
 }

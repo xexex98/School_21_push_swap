@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 13:58:05 by mbarra            #+#    #+#             */
-/*   Updated: 2021/12/06 14:50:31 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/28 18:58:11 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,24 @@ void	ft_algoritm_5(t_ps *ps)
 	pa(ps);
 	pa(ps);
 	ra(ps);
+}
+
+void	fin_rotatae(t_ps *ps)
+{
+	ft_find_min(ps);
+	if (ps->a_min_pos >= ps->a_len / 2)
+		while (ft_sorted(ps) != 1)
+			rra(ps);
+	else
+		while (ft_sorted(ps) != 1)
+			ra(ps);
+	return ;
+}
+
+void	fin_free(t_ps *ps)
+{
+	free(ps->stack_a);
+	free(ps->stack_b);
+	free(ps->index);
+	free(ps);
 }
