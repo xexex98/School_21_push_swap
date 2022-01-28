@@ -6,7 +6,7 @@
 #    By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 13:37:47 by mbarra            #+#    #+#              #
-#    Updated: 2022/01/28 18:57:26 by mbarra           ###   ########.fr        #
+#    Updated: 2022/01/28 19:37:22 by mbarra           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC		=	ft_algoritm_5.c\
 			ft_algoritm.c\
 			ft_find_max_min.c\
 			ft_rules_correct.c\
-			ft_utils_1.c\
+			ft_utils.c\
 			main.c\
 			pa_pb.c\
 			push_swap.c\

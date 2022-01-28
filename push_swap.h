@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:40:26 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/28 19:29:35 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/28 19:40:36 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,5 @@ void		ft_error(t_ps *ps);
 void		actions(t_ps *ps, t_v *v);
 void		ikuzoo(int argc, char **argv, int i, t_ps *ps);
 
+void		print_stack(t_ps *ps);
 #endif
-// void		print_stack(t_ps *ps);

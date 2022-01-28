@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 18:55:50 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/28 19:29:47 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/28 20:06:39 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_error(t_ps *ps)
 {
-	ft_putstr("Сheck input values!\n");
+	ft_putstr("Check input values!\n");
 	fin_free(ps);
-	exit (0);
+	exit(0);
 }
 
 void	actions(t_ps *ps, t_v *v)
@@ -80,14 +80,14 @@ int	main(int argc, char **argv)
 	if (ft_init_struct(ps, argc) == 0)
 		return (0);
 	if (argc < 2)
-		ft_error(ps);
+		exit(0);
 	else
 		ikuzoo(argc, argv, i, ps);
 	fin_free(ps);
 	return (0);
 }
-// print_stack(ps);
 
+// print_stack(ps);
 // void	print_stack(t_ps *ps)
 // {
 // 	int	i;
