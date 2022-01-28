@@ -16,7 +16,8 @@ do
 	# echo $ARG
 	# ./push_swap $ARG | wc -l
 	# ./push_swap $ARG | ./checker $ARG
-	cur=$(../push_swap $ARG | wc -l)
+	# cur=$(../push_swap $ARG | wc -l)
+	cur=$(../push_swap_bonus $ARG | wc -l)
 	let cou=$(($cou+$cur))
 	if [ $cur -gt $max ]; then
 	max=$cur
