@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 18:55:50 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/28 20:29:47 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/29 14:21:28 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,17 +73,26 @@ int	main(int argc, char **argv)
 	int		i;
 	t_ps	*ps;
 
-	i = 1;
-	ps = (t_ps *)malloc(sizeof(t_ps));
-	if (!ps)
-		return (0);
-	if (ft_init_struct(ps, argc) == 0)
-		return (0);
-	if (argc < 2)
-		exit(0);
-	else
-		ikuzoo(argc, argv, i, ps);
-	fin_free(ps);
+	char *line;
+	
+	write(0, "ha", 3);
+	while ((line = get_next_line(0)) != NULL)
+		printf ("%s\n", line);
+	// чекер должен применять действия моей программы к стеку и 
+	// проверить его на отсортированность после применения этих действий
+
+
+	// i = 1;
+	// ps = (t_ps *)malloc(sizeof(t_ps));
+	// if (!ps)
+	// 	return (0);
+	// if (ft_init_struct(ps, argc) == 0)
+	// 	return (0);
+	// if (argc < 2)
+	// 	exit(0);
+	// else
+	// 	ikuzoo(argc, argv, i, ps);
+	// fin_free(ps);
 	return (0);
 }
 

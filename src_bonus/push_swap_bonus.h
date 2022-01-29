@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:40:26 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/28 21:11:48 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/29 14:03:40 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include "./gnl/get_next_line.h"
 
 typedef struct s_ps
 {

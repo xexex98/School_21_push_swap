@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 18:09:31 by mbarra            #+#    #+#             */
-/*   Updated: 2021/12/02 21:43:58 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/29 14:41:16 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ra(t_ps *ps)
 	int		i;
 
 	i = 0;
+	if (ps->a_len < 2)
+		return ;
 	temp = ps->stack_a[0];
 	while (i + 1 < ps->a_len)
 	{
@@ -34,6 +36,8 @@ void	rb(t_ps *ps)
 	int		i;
 
 	i = 0;
+	if (ps->b_len < 2)
+		return ;
 	temp = ps->stack_b[0];
 	while (i + 1 < ps->b_len)
 	{
@@ -50,6 +54,8 @@ void	rr(t_ps *ps)
 	int		i;
 
 	i = 0;
+	if (ps->a_len < 2 || ps->b_len < 2)
+		return ;
 	temp = ps->stack_a[0];
 	while (i + 1 < ps->a_len)
 	{
