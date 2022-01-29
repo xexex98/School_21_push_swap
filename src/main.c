@@ -6,15 +6,33 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 18:55:50 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/29 15:40:58 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/29 20:56:01 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	unsigned char	*buf1;
+	unsigned char	*buf2;
+	unsigned int	i;
+
+	buf1 = (unsigned char *)s1;
+	buf2 = (unsigned char *)s2;
+	i = 0;
+	while (buf1[i] || buf2[i])
+	{
+		if (buf1[i] != buf2[i])
+			return (buf1[i] - buf2[i]);
+		i++;
+	}
+	return (0);
+}
+
 void	ft_error(t_ps *ps)
 {
-	ft_putstr("Check input values!\n");
+	ft_putstr("Error\n");
 	fin_free(ps);
 	exit(0);
 }
@@ -51,7 +69,7 @@ void	ikuzoo(int argc, char **argv, int i, t_ps *ps)
 	while (i < argc)
 	{
 		if (ft_correct(argv[i]) == 1 && ft_atoi(argv[i]) >= -2147483648
-			&& ft_atoi(argv[i]) <= 2147483647)
+			&& ft_atoi(argv[i]) <= 2147483647 && ft_strcmp(argv[i], "") != 0)
 			ps->stack_a[i - 1] = ft_atoi(argv[i]);
 		else
 			ft_error(ps);
@@ -60,7 +78,7 @@ void	ikuzoo(int argc, char **argv, int i, t_ps *ps)
 	if (ft_dup(ps->stack_a, ps->a_len) == 1)
 	{
 		if (ft_sorted(ps) == 1)
-			ft_error(ps);
+			exit(0);
 		else
 			ft_algoritm(ps);
 	}

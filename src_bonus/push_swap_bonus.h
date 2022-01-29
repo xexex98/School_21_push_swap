@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 18:40:26 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/29 14:03:40 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/29 21:05:00 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,29 +51,10 @@ typedef struct s_v
 	int	i;
 }				t_v;
 
-void		ft_push_top_min_5(t_ps *ps);
-void		ft_push_top_max_5(t_ps *ps);
-void		ft_algoritm_5(t_ps *ps);
-void		fin_rotatae(t_ps *ps);
-void		fin_free(t_ps *ps);
-
-void		ft_algoritm_2(t_ps *ps);
-void		ft_algoritm_3(t_ps *ps);
-void		ft_algoritm_4(t_ps *ps);
-void		ft_algoritm_main(t_ps *ps);
-void		ft_algoritm(t_ps *ps);
-
-void		ft_find_max(t_ps *ps);
-void		ft_find_min(t_ps *ps);
-void		ft_index(t_ps *ps);
-void		*ft_calloc(size_t nmemb, size_t size);
-void		min_max_in_a_and_index(t_ps *ps);
-
 int			ft_correct(char *str);
 int			ft_sorted(t_ps *ps);
 int			ft_dup(int *str, int len);
 int			ft_init_struct(t_ps *ps, int argc);
-void		init_v(t_v *v);
 
 void		ft_putstr(char *str);
 int			ft_strlen(char *str);
@@ -81,30 +62,30 @@ int			ft_isdigit(int c);
 long int	ft_atoi(const char *nptr);
 void		*ft_memset(void *s, int c, size_t n);
 
-void		pa(t_ps *ps);
-void		pb(t_ps *ps);
+int			ft_strcmp_n(const char *s1, const char *s2);
+int			ft_strcmp(const char *s1, const char *s2);
+void		*ft_calloc(size_t nmemb, size_t size);
+void		fin_free(t_ps *ps);
+void		checker_error(t_ps *ps, char *line);
 
-void		ra(t_ps *ps);
-void		rb(t_ps *ps);
-void		rr(t_ps *ps);
+void		pa_b(t_ps *ps);
+void		pb_b(t_ps *ps);
+void		sa_b(t_ps *ps);
+void		sb_b(t_ps *ps);
+void		ss_b(t_ps *ps);
 
-void		rra(t_ps *ps);
-void		rrb(t_ps *ps);
-void		rrr(t_ps *ps);
+void		ra_b(t_ps *ps);
+void		rb_b(t_ps *ps);
+void		rr_b(t_ps *ps);
 
-void		sa(t_ps *ps);
-void		sb(t_ps *ps);
-void		ss(t_ps *ps);
-
-void		price_1(t_ps *ps, t_v *v);
-void		price_2(t_ps *ps, t_v *v);
-void		flag(t_v *v);
-void		steps_val(t_v *v);
-void		b_val(t_ps *ps, t_v *v);
+void		rra_b(t_ps *ps);
+void		rrb_b(t_ps *ps);
+void		rrr_b(t_ps *ps);
 
 void		ft_error(t_ps *ps);
-void		actions(t_ps *ps, t_v *v);
+void		checker_2(t_ps *ps, char *line);
+void		checker(t_ps *ps);
 void		ikuzoo(int argc, char **argv, int i, t_ps *ps);
 
-void		print_stack(t_ps *ps);
 #endif
+// void		print_stack(t_ps *ps);

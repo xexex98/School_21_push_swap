@@ -6,7 +6,7 @@
 /*   By: mbarra <mbarra@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 13:53:47 by mbarra            #+#    #+#             */
-/*   Updated: 2022/01/28 20:29:41 by mbarra           ###   ########.fr       */
+/*   Updated: 2022/01/29 17:44:58 by mbarra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,21 +84,4 @@ int	ft_init_struct(t_ps *ps, int argc)
 	ps->a_max_pos = 0;
 	ps->a_mid_pos = 0;
 	return (1);
-}
-
-void	init_v(t_v *v)
-{
-	v->price = 0;
-	v->min_price = 0;
-	v->nra = 0;
-	v->nrra = 0;
-	v->price_b_rb = 0;
-	v->price_b_rrb = 0;
-	v->a_ra = 0;
-	v->b_ra = 0;
-	v->a_rra = 0;
-	v->b_rra = 0;
-	v->flag = 0;
-	v->i = 0;
-	return ;
 }
